@@ -84,7 +84,9 @@
 
 .services-wrap,
 .portfolio-wrap,
-.about-wrap
+.about-wrap,
+.team-wrap,
+#message
 { padding-top: 70px; }
 
 h2.title {
@@ -233,6 +235,7 @@ p.descr {
     width: 33%;
 }
 
+.social a.ic-fb.black { background: url(../img/Facebook.png) no-repeat center;  background-color: #222; }
 .social a.ic-fb {
     background: url(../img/Facebook-1.png) no-repeat center; 
 }
@@ -243,6 +246,7 @@ p.descr {
     border: 3px solid #3b5998;
 }
 
+.social a.ic-tw.black { background: url(../img/Twitter-1.png) no-repeat center;  background-color: #222; }
 .social a.ic-tw {
     background: url(../img/Twitter.png) no-repeat center;
 }
@@ -253,6 +257,7 @@ p.descr {
     border: 3px solid #00aced;
 }
 
+.social a.ic-pn.black { background: url(../img/Pinterest-1.png) no-repeat center;  background-color: #222; }
 .social a.ic-pn {
     background: url(../img/Pinterest.png) no-repeat center;
 }
@@ -263,12 +268,97 @@ p.descr {
     border: 3px solid #cb2028;
 }
 
+.social a.ic-gl.black { background: url(../img/Google+.png) no-repeat center;  background-color: #222; }
 .social a.ic-gl {
+    background: url(../img/Google+-1.png) no-repeat center;
+}
+
+.social a.ic-gl:hover {
     background: url(../img/Google+.png) no-repeat center;
     background-color: #d95232;
     border: 3px solid #d95232;
 }
 
-.social a.ic-gl {
-    background: url(../img/Google+-1.png) no-repeat center;
+.social a.black { background-color: #222; }
+
+#brand {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#brand a {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+#brand a:last-child { margin-right: 0; }
+
+#brand img { vertical-align: middle; }
+
+#contact { 
+    text-align: center; 
+    background: #222 url(../img/map.png) no-repeat right bottom;
+}
+
+#contact h2.title { color: #fff; }
+
+#message .left,
+#message .right {
+    width: 47%;
+}
+
+#message input[type="text"],
+#message input[type="email"],
+#message textarea {
+    width: 100%;
+    box-shadow: none;
+    padding: 0 20px;
+    font: bold 14px/14px Arial, sans-serif;
+    color: #222;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#message input[type="text"],
+#message input[type="email"] {
+    height: 50px;
+    border: 1px solid #ccc;
+}
+
+#message textarea { 
+    padding: 15px 20px 0 20px;
+    border: none;
+    height: 200px;
+    resize: none;
+}
+
+::--webkit-input-placeholder {
+    text-transform: uppercase;
+    font: bold 14px/14px Arial, sans-serif;
+    color: #bbb;
+}
+
+::--webkit-placeholder {
+    text-transform: uppercase;
+    font: bold 14px/14px Arial, sans-serif;
+    color: #bbb;
+}
+
+#copyright {
+    padding: 20px 0 30px;
+}
+
+#copyright .social { 
+    margin-top: 0;
+    margin-left: 365px;
+}
+
+#copyright p {
+    margin-top: 20px;
+    font: 14px/14px Arial, sans-serif;
+    color: #555;
 }
