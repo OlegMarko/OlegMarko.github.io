@@ -127,7 +127,7 @@
             
         </div>
         <br>
-        <div class="row" id="res_b_k">
+        <div class="row">
             <div class="col-sm-offset-2 col-sm-3">
                 <h3 class="text left">ВГАДАЛИ</h3>
             </div>
@@ -137,6 +137,7 @@
             <div class="col-sm-3">
                 <h3 class="text right">НЕ ВГАДАЛИ</h3>
             </div>
+            <div id="res_b_k"></div>
         </div>
         
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -241,10 +242,10 @@
                 
                 if ((num[1] == arrayBut[1])&&(num[2]==arrayBut[2])&&(num[3]==arrayBut[3])&&(num[4]==arrayBut[4])) {
                     var qqq = '<div class="col-sm-offset-2 col-sm-3">'+
-                        '<h3 class="text left">'+byki+'</h3></div>'+
+                        '<h3 class="text left">'+ byki +'</h3></div>'+
                         '<div class="col-sm-2"><h3 class="text right">'+num[1]+' '+num[2]+' ' +num[3]+' '+num[4]+'</h3></div>'+
-                        '<div class="col-sm-3"><h3 class="text right">'+korovy+'</h3></div>';
-                    $('#res_b_k').append(qqq);
+                        '<div class="col-sm-3"><h3 class="text right">'+ korovy +'</h3></div>';
+                    $('#res_b_k').prepend(qqq);
                     
                     ckeck[1] = 0;
                     ckeck[2] = 0;
@@ -273,7 +274,7 @@
                         '<h3 class="text left">'+byki+'</h3></div>'+
                         '<div class="col-sm-2"><h3 class="text right">'+num[1]+' '+num[2]+' ' +num[3]+' '+num[4]+'</h3></div>'+
                         '<div class="col-sm-3"><h3 class="text right">'+korovy+'</h3></div>';
-                    $('#res_b_k').append(qqq);
+                    $('#res_b_k').prepend(qqq);
                     
                     ckeck[1] = 0;
                     ckeck[2] = 0;
