@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Drag and drop</title>
+    <style>
+        .img {
+            width: auto;
+            height: 150px;
+        }
+        .container {
+            width: 100%;
+            background-color: #2A3340;
+            min-height: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="img_1" class="img" src="pexels-photo-234871.jpeg" alt="" draggable="true" ondragstart="dragStart(event)">
+        <img id="img_2" class="img" src="pexels-photo-23983.jpg" alt="" draggable="true" ondragstart="dragStart(event)">
+    </div>
+
+    <div class="container" ondrop="drop(event)" ondragover="dragOver(event)"></div>
+    <script>
+        function dragStart(event) {
+            event.dataTransfer.setData("text/plain", event.target.id);
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+        }
+        function drop(event) {
+            event.preventDefault();
+            var img = event.dataTransfer.getData("text/plain");
+            var new_img = document.getElementById(img).cloneNode(true);
+            event.target.appendChild(new_img);
+        }
+    </script>
+</body>
+</html>

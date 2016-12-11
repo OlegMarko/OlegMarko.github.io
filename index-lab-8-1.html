@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>LAB 8</title>
+        <meta name="robots" content="noindex,nofollow" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-3">
+                    <div class="form-group">
+                        <label>Кількість строк</label>
+                        <input type="number" id="count_rows" value="5" />
+                    </div>
+                    <div class="form-group">
+                        <label>Кількість стовбців</label>
+                        <input type="number" id="count_cols" value="5" />
+                    </div>
+                </div>
+                <div class="col-sm-3" id="matr"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-3">
+                    <div class="form-group">
+                        <button class="btn btn-default" id="build">Побудувати матрицю</button>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success" id="getRes">Розрахувати</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-4">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <script  src="https://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            
+            $('#build').click(function () {
+                c_t = $('#count_rows').val();
+                c_c = $('#count_cols').val();
+                
+                res = '<table class="table-striped table-bordered" cellspacing="0" width="100%" style="text-align: center;">';
+                A = new Array();
+                for (var i = 0; i < parseInt(c_t); i++) {
+                    res += '<tr>';
+                    A[i] = new Array();
+                    for (var j = 0; j < parseInt(c_c); j++) {
+                        res += '<td>';
+                            A[i][j] = 3 * i + j;
+                        res += (A[i][j] + '</td>');
+                    }
+                    res += '</tr>';
+                }
+                res += '</table>';
+                
+                $('#matr').html(res);
+            });
+            
+            $('#getRes').click(function () {
+                var res3 = 0;
+                for (var i = 0; i < parseInt(c_c); i++) {
+                    res3 += A[i][c_c-1];
+                }
+                
+                alert('Сума останнього стовпця = ' + res3);
+            });
+            
+        </script>
+    </body>
+</html>

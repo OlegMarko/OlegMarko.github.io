@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Adding Images</title>
+    <script type="text/javascript">
+        function setup() {
+            var canvas = document.getElementById('lessonCanvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+		var img = new Image();
+                img.onload = function(){
+                    ctx.drawImage (img, 287, 132, 100, 100, 0, 0, 300, 300);
+                };
+                img.src = 'images/fishlake.jpg';
+
+            }
+        }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="lessonCanvas" width="300" height="300" style="margin:100px;"></canvas>
+  </body>
+</html>

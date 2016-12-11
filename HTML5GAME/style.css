@@ -1,0 +1,26 @@
+body {
+    background-color: dimgray;
+}
+
+#gameName {
+    color: aliceblue;
+    font-family: Consolas;
+    font-weight: 500;
+    font-size: 150%;
+    text-align: center;
+}
+
+canvas {
+    display: block;
+}
+
+#map {
+    display: block;
+    background-color: aliceblue;
+    margin: 30px auto 0;
+}
+
+#gamer, #enemy, #status {
+    display: block;
+    margin: -300px auto 0;
+}

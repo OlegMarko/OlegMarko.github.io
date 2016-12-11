@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drawing Loop</title>
+    <script type="text/javascript">
+        var ctx;
+        var img;
+        var x = 0;
+        var y = 40;
+	
+        function setup() {
+            var canvas = document.getElementById('lessonCanvas');
+
+            if (canvas.getContext) {
+               	ctx = canvas.getContext('2d');
+		setInterval('draw();', 36);
+		img = new Image();
+		img.src = 'images/ufo.png';
+	    }
+        }
+
+	function draw()	{
+	    drawBackground();
+
+	    ctx.drawImage(img, x, y);
+            x += 3;
+            
+            if (x > 300) {
+                x -= 50;
+                y = Math.random() * 300;
+            }
+	}
+
+	function drawBackground(){
+	    var lineGrad = ctx.createLinearGradient(150, 0, 150, 300);
+	    lineGrad.addColorStop(0, 'black');
+	    lineGrad.addColorStop(1, '#5498d1');
+	    ctx.fillStyle = lineGrad;
+	    ctx.fillRect(0, 0, 300, 300);
+
+	    ctx.fillStyle = 'white';
+
+            ctx.beginPath();
+            ctx.arc(55, 58, 3, 0, Math.PI*2, false);
+            ctx.fill();
+		
+            ctx.beginPath();
+            ctx.arc(227, 128, 2, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(214, 50, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(138, 117, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(43, 195, 1, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(294, 15, 2, 0, Math.PI*2, false);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.arc(185, 223, 1, 0, Math.PI*2, false);
+            ctx.fill();	
+	}
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="lessonCanvas" width="300" height="300" style="margin:100px;"></canvas>
+  </body>
+</html>

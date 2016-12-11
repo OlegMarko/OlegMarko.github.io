@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Using Transforms</title>
+    <script type="text/javascript">
+        function setup() {
+            var canvas = document.getElementById('lessonCanvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+		ctx.strokeRect(0, 0, 300, 300);
+
+		//rectangle1
+		ctx.fillRect(30, 120, 40, 40);
+                ctx.save();
+                ctx.translate(0, 20);
+
+		//rectangle2
+		ctx.fillRect(80, 120, 40, 40);
+                
+                ctx.save();
+                ctx.rotate(0.19);
+
+		//rectangle3
+		ctx.fillRect(130, 120, 40, 40);
+                ctx.restore();
+                ctx.scale(0.5, 0.7);
+
+		//rectangle4
+		ctx.fillRect(180, 120, 40, 40);
+                ctx.restore();
+                
+
+		//rectangle5
+		ctx.fillRect(230, 120, 40, 40);
+
+            }
+        }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="lessonCanvas" width="300" height="300" style="margin:100px;"></canvas>
+  </body>
+</html>

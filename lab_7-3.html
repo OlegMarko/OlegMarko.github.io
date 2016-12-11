@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var x, y, f;
+            function fun() {
+                x = parseInt(main_form.t_a.value);
+                y = parseInt(main_form.t_b.value);
+                if (x-y > 2)
+                    f = x-y*y;
+                else if (x > 0)
+                    f = x/y;
+                else
+                    f = Math.pow(x, 3) - y*y;
+                main_form.t_d.value = "" + f;
+            }
+            
+            function factorial(i) {
+                return i ? i * factorial(i - 1) : 1;
+            }
+            
+            function resFor() {
+                var res = -1;
+                for (var i = 1; i <= 5; i++) {
+                    res =+ Math.pow(-1, i)*((2*x*y - factorial(i))/(1-x));
+                    console.log(i);
+                    console.log(factorial(i));
+                }
+                
+                main_form.res.value = "" + res;
+            }
+        </script>
+    </head>
+    <body>
+        <form id = "main_form">
+            x<input type="text" id = "t_a" value="5"><br>
+            y<input type="text" id = "t_b" value="5"><br>
+            f_1<input type="text" id = "t_d" value=""><br>
+            <input type = "button" onClick = "fun();" value = "Розрахувати">
+            <br />
+            <hr />
+            <br />
+            f_2<input type="text" id = "res" value=""><br>
+            <input type = "button" onClick = "resFor();" value = "Розрахувати">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Charts and Graphs with the Canvas</title>
+        <script type="text/javascript">
+            var sampleData = [
+                {
+                    label: "Profit",
+                    value: 1200
+                },
+                {
+                    label: "Expenses",
+                    value: 800
+                },
+                {
+                    label: "Budget",
+                    value: 1000
+                }
+            ];
+            var colors = ["RGB(255, 0, 0)", "RGB(0, 255, 0)", "RGB(0, 0, 255)"];
+            var margin = 30;
+            var spacing = 5;
+            var labelFont = "12px sans-serif";
+            
+            window.onload = function () {
+                var canvas = document.getElementById('barGraph');
+
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext('2d');
+                    ctx.font = labelFont;
+                    ctx.textAlign = "center";
+                }
+                    
+                ctx.textAlign = "center";
+                var value, label, highest = 0;
+
+                for( var i = 0; i < sampleData.length; i++ ) {
+                    value = sampleData[i].value;
+                    if( value && value > highest )
+                        highest = value;
+                }
+
+                var bar = {
+                    x: margin,
+                    y: canvas.offsetHeight - margin,
+                    width: (canvas.offsetWidth - margin * 2 - ( spacing * ( sampleData.length - 1 ) ) ) /sampleData.length,
+                    height: 0
+                };
+
+                for( i = 0; i < sampleData.length; i++ ) {
+                    value = parseInt(sampleData[i].value);
+                    label = sampleData[i].label;
+                    ctx.fillStyle = colors[ i % sampleData.length ];
+                    bar.height -= (canvas.offsetHeight / highest * value - margin * 2);
+                    bar.height =- (canvas.offsetHeight / highest * value - margin * 2);
+                    ctx.fillRect( bar.x, bar.y, bar.width, bar.height );
+                    
+                    ctx.fillText( label, bar.x + bar.width/2, bar.y + spacing + parseInt(labelFont) );
+                    
+                    bar.x += bar.width + spacing;
+                    
+                    ctx.save();
+                    
+                    switch( i ) {
+                        case 0:
+                            label = "0";
+                            ctx.textAlign = "right";
+                            ctx.translate( margin-spacing-parseInt(labelFont), canvas.offsetWidth - margin );
+                            break;
+                        case 1:
+                            label = (highest/2).toString();
+                            ctx.textAlign = "center";
+                            ctx.translate( margin-spacing-parseInt(labelFont),  canvas.offsetHeight /2 );
+                            break;
+                        case 2:
+                            label = (highest).toString();
+                            ctx.textAlign = "left";
+                            ctx.translate( margin-spacing-parseInt(labelFont),  margin );
+                            break;
+
+                    }
+                    
+                    ctx.rotate( Math.PI/2 );
+                    
+                    ctx.fillText( label, 0, 0 );		
+                    ctx.restore();
+
+                }
+                
+                ctx.fillStyle = "RGB(0,0,0)";
+                
+            };
+        </script>
+        <style type="text/css">
+            #barGraph {
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="barGraph" width="300" height="300"> </canvas>
+    </body>
+</html>

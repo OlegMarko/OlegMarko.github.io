@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drawing Lines and Circles</title>
+    <script type="text/javascript">
+        function setup() {
+            var canvas = document.getElementById('lessonCanvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                
+                ctx.strokeRect(0, 0, 300, 300);
+                ctx.moveTo(20., 20);
+                ctx.lineTo(100, 100);
+                ctx.lineTo(80, 200);
+                ctx.lineTo(200, 80);
+                ctx.lineTo(200, 200);
+                ctx.lineTo(280, 280);
+                ctx.stroke();
+                
+                ctx.fillStyle = "RGB(255,0,0)";
+                ctx.beginPath();
+                ctx.arc(100, 100, 16, 0, Math.PI * 2, false);
+                ctx.fill();
+                ctx.stroke();
+                
+                ctx.beginPath ();
+                ctx.arc (170, 170, 16, 0, Math.PI, true);
+                ctx.fill ();
+                
+                ctx.strokeRect(0, 0, 300, 300);
+                
+                ctx.fillStyle = 'RGB(0,173,104)';
+                ctx.moveTo(145, 150);
+                ctx.quadraticCurveTo(120, 200, 170, 280);
+                ctx.lineTo(190, 280);
+                ctx.quadraticCurveTo(125, 190, 155, 150);
+                ctx.fill();
+                
+                var pt1 = {x:155, y:145};
+                var pt2 = {x:93, y:106};
+                var cp1 = {x:111, y:154};
+                var cp2 = {x:66, y:131};
+
+                ctx.fillStyle = 'RGB(115,206,226)';
+                ctx.strokeStyle = 'RGB(0,111,174)';
+                ctx.beginPath();
+                ctx.moveTo(pt1.x, pt1.y);
+                ctx.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, pt2.x,pt2.y);
+                ctx.bezierCurveTo(89, 65, 159, 118, 155, 145);
+                ctx.fill();
+                ctx.stroke();
+                
+                ctx.fillStyle = 'RGB(243,237,99)';
+                ctx.strokeStyle = 'RGB(253,183,58)';
+                ctx.beginPath();
+                ctx.arc(155, 145, 10, 0, Math.PI * 2, false);
+                ctx.fill();
+                ctx.stroke();
+                
+                ctx.strokeStyle = 'RGB(255,0,0)';
+                ctx.beginPath();
+                ctx.arc(pt1.x, pt1.y, 2, 0, Math.PI * 2, false);
+                ctx.arc(cp1.x, cp1.y, 2, 0, Math.PI * 2, false);
+                ctx.arc(cp2.x, cp2.y, 2, 0, Math.PI * 2, false);
+                ctx.arc(pt2.x, pt2.y, 2, 0, Math.PI * 2, false);
+                ctx.stroke();
+            }
+        }
+    </script>
+  </head>
+  <body onload="setup();">
+    <canvas id="lessonCanvas" width="300" height="300" style="margin:100px;"></canvas>
+  </body>
+</html>

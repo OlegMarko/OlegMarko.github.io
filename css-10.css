@@ -1,0 +1,41 @@
+body {
+font-family: Arial Narrow, Helvetica, Arial, sans-serif; color:#000000;
+}
+
+p	{
+
+/* setup some more readable paragraph spacing */
+margin-top: 0px;
+margin-bottom: 10px;
+}
+
+p.code {
+
+font-family:"Courier New", Courier, monospace;
+color:#FFFFFF;
+background-color:#44687d;
+margin: 0px 20px 10px 10px;
+padding: 10px 10px;
+}
+
+.code_inline {
+
+font-family: "Courier New", Courier, monospace;
+color: #44687d;
+}
+
+p.figure {
+
+font-style: italic;
+font-size: 3;
+margin-top: 0.08in;
+}
+
+h1,h2, h3, h4, h5 {
+
+/* Kaazing blue */
+color: #44687d;
+/* setup some more readable header spacing */
+padding-bottom: 5px;
+margin: 5px 0 5px 0;
+}
